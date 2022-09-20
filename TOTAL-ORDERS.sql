@@ -1,0 +1,16 @@
+set serveroutput on;
+set verify off;
+
+DECLARE 
+	TOTAL_ORDERS NUMBER := 0;
+	N1 NUMBER := 0;
+BEGIN
+	
+	FOR Z IN (SELECT COUNT(DISTINCT O_ID) AS COUNTT FROM ORDERS) LOOP
+			N1 := Z.COUNTT;
+	END LOOP;
+	
+	DBMS_OUTPUT.PUT_LINE('TOTAL ORDERS :' ||N1);
+	
+END;
+/
